@@ -106,11 +106,11 @@ app.layout = html.Div([
         html.Br(),
     ]),
     html.Br(),
-    html.Div(id='blank1', style={'width': '6%', 'display': 'inline-block'}),    
-    html.Div(id='output-ae-summary-total', style={'width': '46%', 'display': 'inline-block'}),
-    html.Div(id='blank2', style={'width': '5%', 'display': 'inline-block'}),    
-    html.Div(id='output-ae-summary', style={'width': '38%', 'display': 'inline-block'} ),
-    html.Div(id='blank3', style={'width': '5%', 'display': 'inline-block'}),    
+    #html.Div(id='blank1', style={'width': '6%', 'display': 'inline-block'}),    
+    html.Div(id='output-ae-summary-total', style={'width': '70%', 'display': 'inline-block'}),
+    html.Div(id='blank2', style={'width': '3%', 'display': 'inline-block'}),    
+    html.Div(id='output-ae-summary', style={'width': '27%', 'display': 'inline-block'} ),
+    #html.Div(id='blank3', style={'width': '5%', 'display': 'inline-block'}),    
     html.Br(), html.Br(),
     
     dcc.Tabs([
@@ -353,11 +353,11 @@ def update_graph(trial):
             oae_tab = html.H1("There are 0 subjects with Serious Adverse Events", style={'text-align': 'center'})
             study_arm_count = 0
 
-        d = {'Category': ['Serious AE', 'Other AE'], 
-             'Confirmed Subjects': [sae_subs_uni, oae_subs_uni],
+        d = {'Group': ['SAE', 'OAE'], 
+             'Subjects': [sae_subs_uni, oae_subs_uni],
              'Percentage': [sae_sub_percent, oae_sub_percent],
-             'Subjects At Risk': [sae_risk, oae_risk], 
-             'AE Term Count': [sae_term_count, oae_term_count],
+             #'Subjects At Risk': [sae_risk, oae_risk], 
+             'AE Count': [sae_term_count, oae_term_count],
              }
 
         ae_summary_individual = pd.DataFrame(data=d)
